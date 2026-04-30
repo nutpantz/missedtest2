@@ -1,4 +1,4 @@
-# Missed Notifications Reminder
+# Missed Notifications Reminder v.1.6.5  messing with it to get it to build and update to andoid 15
 
 Unfortunately Android doesn't have default integrated functionality to notify user periodically about missing calls/messages/other notifications via sound (only LED is blinking). This opensource tool allows to monitor notifications from any applications which are important for You and perform sound reminder periodically 
 
