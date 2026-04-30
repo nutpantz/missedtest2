@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/settingsFragment">
+
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.app.missednotificationsreminder.settings.SettingsFragment"
+        android:label="@string/settings_title"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_applicationsSelectionFragment"
+            app:destination="@id/applicationsSelectionFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_settingsFragment_to_contributionFragment"
+            app:destination="@id/contributionFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/applicationsSelectionFragment"
+        android:name="com.app.missednotificationsreminder.settings.applicationselection.ApplicationsSelectionFragment"
+        android:label="@string/applications_selection_title"
+        tools:layout="@layout/fragment_applications_selection" />
+
+    <fragment
+        android:id="@+id/contributionFragment"
+        android:name="com.app.missednotificationsreminder.payment.ContributeFragment"
+        android:label="@string/contribution_title"
+        tools:layout="@layout/fragment_contribute">
+        <action
+            android:id="@+id/action_contributionFragment_to_alertDialogFragment"
+            app:destination="@id/alertDialogFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/alertDialogFragment"
+        android:name="com.app.missednotificationsreminder.ui.fragment.dialog.AlertDialogFragment">
+        <argument
+            android:name="title"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="message"
+            app:argType="string" />
+        <argument
+            android:name="okButton"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="cancelButton"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </dialog>
+</navigation>

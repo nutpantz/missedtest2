@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="reminderIntervalMinimum">5</integer>
+    <integer name="reminderIntervalMaximum">3600</integer>
+    <integer name="reminderIntervalDefault">60</integer>
+    <integer name="reminderRepeatsDefault">5</integer>
+    <integer name="reminderRepeatsMinimum">1</integer>
+    <integer name="reminderRepeatsMaximum">100</integer>
+    <string name="vibrationPatternDefault" translatable="false">0, 100, 50, 100, 50, 100, 200</string>
+    <!-- range minimum is 0 minutes or 00:00 O'Clock -->
+    <integer name="schedulerRangeMinimum">0</integer>
+    <!-- range maximim is 1439 minutes or 23:59 O'Clock -->
+    <integer name="schedulerRangeMaximum">1439</integer>
+    <!-- range begin is 420 minutes or 7:00 O'Clock -->
+    <integer name="schedulerRangeDefaultBegin">420</integer>
+    <!-- range end is 1260 minutes or 21:00 O'Clock -->
+    <integer name="schedulerRangeDefaultEnd">1260</integer>
+</resources>

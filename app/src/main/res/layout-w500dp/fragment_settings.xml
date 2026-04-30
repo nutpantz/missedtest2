@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".settings.MainActivity">
+
+    <data>
+
+        <import type="android.text.TextUtils"/>
+
+        <variable
+            name="fragment"
+            type="com.app.missednotificationsreminder.settings.SettingsFragment"/>
+
+        <variable
+            name="viewModel"
+            type="com.app.missednotificationsreminder.settings.SettingsViewModel" />
+
+        <variable
+            name="viewState"
+            type="androidx.lifecycle.LiveData&lt;com.app.missednotificationsreminder.settings.SettingsViewState&gt;"/>
+
+        <variable
+            name="applicationsSettingsViewState"
+            type="androidx.lifecycle.LiveData&lt;com.app.missednotificationsreminder.settings.applicationssettings.ApplicationsSettingsViewState&gt;" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:paddingBottomSystemWindowInsets="@{true}"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/default_widget_interval">
+
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <include
+                    layout="@layout/view_settings_card_access"
+                    tools:fragment="@{fragment}"
+                    tools:viewState="@{viewState}"/>
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/default_widget_interval"/>
+
+                <include
+                    layout="@layout/view_settings_card_apps"
+                    tools:fragment="@{fragment}"
+                    tools:parentViewState="@{viewState}"
+                    tools:viewState="@{applicationsSettingsViewState}"/>
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/default_widget_interval"
+                    android:visibility="@{viewState.advancedSettingsVisible ? View.VISIBLE : View.GONE}"/>
+
+                <include
+                    layout="@layout/view_settings_card_scheduler"
+                    tools:viewState="@{viewState}"/>
+
+            </LinearLayout>
+
+            <androidx.legacy.widget.Space
+                android:layout_width="@dimen/default_widget_interval"
+                android:layout_height="0dip"/>
+
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <include
+                    layout="@layout/view_settings_permissions"
+                    tools:fragment="@{fragment}"
+                    tools:viewState="@{viewState}"/>
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/default_widget_interval"
+                    android:visibility="@{viewState.isBatteryOptimizationSettingsVisible ? View.VISIBLE : View.GONE}"/>
+
+                <include
+                    layout="@layout/view_settings_battery_optimization"
+                    tools:fragment="@{fragment}"
+                    tools:viewModel="@{viewModel}"
+                    tools:viewState="@{viewState}"/>
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/default_widget_interval"
+                    android:visibility="@{TextUtils.isEmpty(viewState.missingPermissions) ? View.GONE : View.VISIBLE}"/>
+
+                <include layout="@layout/view_settings_card_reminder"/>
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/default_widget_interval"
+                    android:visibility="@{viewState.advancedSettingsVisible ? View.VISIBLE : View.GONE}"/>
+
+                <include
+                    layout="@layout/view_settings_card_sound"
+                    tools:viewState="@{viewState}"/>
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/default_widget_interval"
+                    android:visibility="@{viewState.advancedSettingsVisible &amp;&amp; viewState.vibrationSettingsAvailable ? View.VISIBLE : View.GONE}"/>
+
+                <include
+                    layout="@layout/view_settings_card_vibration"
+                    tools:viewState="@{viewState}"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

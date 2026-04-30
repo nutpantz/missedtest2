@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.app.missednotificationsreminder.settings.applicationselection.ApplicationItemViewModel"/>
+        <variable
+            name="viewState"
+            type="androidx.lifecycle.LiveData&lt;com.app.missednotificationsreminder.settings.applicationselection.ApplicationItemViewState&gt;"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:onClick="@{() -> model.onItemClicked()}"
+        android:padding="@dimen/default_widget_interval"
+        android:focusable="true">
+
+        <CheckBox
+            android:id="@+id/selected_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@{viewState.checked}"
+            android:clickable="false"
+            android:duplicateParentState="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/application_icon_size"
+            android:layout_height="@dimen/application_icon_size"
+            android:layout_marginStart="@dimen/default_widget_interval"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/selected_indicator"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:request="@{model.icon}" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_widget_interval"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="@{viewState.name}"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            app:layout_constraintStart_toEndOf="@id/icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Name" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_widget_interval"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="@{viewState.description}"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            app:layout_constraintStart_toEndOf="@id/icon"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Description" />
+
+        <TextView
+            android:id="@+id/counter"
+            android:layout_width="16sp"
+            android:layout_height="16sp"
+            android:text="@{viewState.activeNotificationsInfo}"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:background="?colorError"
+            android:gravity="center"
+            android:visibility="@{viewState.hasActiveNotifications}"
+            app:layout_constraintEnd_toEndOf="@+id/icon"
+            app:layout_constraintBottom_toBottomOf="@+id/icon"
+            tools:text="2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

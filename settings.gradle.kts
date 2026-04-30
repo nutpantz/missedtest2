@@ -1,0 +1,2 @@
+includeBuild("buildSrcIncluded  ")
+include(":app")

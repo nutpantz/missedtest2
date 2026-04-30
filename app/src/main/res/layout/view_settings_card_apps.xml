@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".settings.MainActivity">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="fragment"
+            type="com.app.missednotificationsreminder.settings.SettingsFragment"/>
+
+        <variable
+            name="parentViewState"
+            type="androidx.lifecycle.LiveData&lt;com.app.missednotificationsreminder.settings.SettingsViewState&gt;"/>
+
+        <variable
+            name="viewState"
+            type="androidx.lifecycle.LiveData&lt;com.app.missednotificationsreminder.settings.applicationssettings.ApplicationsSettingsViewState&gt;"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+        style="@style/SettingsCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/CardTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_applications_select_title"
+                />
+
+            <View
+                style="@style/CardTitleSeparator"
+                android:layout_width="match_parent"
+                android:layout_height="1dip"/>
+
+            <LinearLayout
+                style="@style/CardContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{parentViewState.advancedSettingsVisible ? View.VISIBLE : View.GONE}">
+
+                    <TextView
+                        style="@style/Label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewState.ignorePersistentNotifications ? @string/ignore_persistent_notifications_enabled : @string/ignore_persistent_notifications_disabled}"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textOff="@string/ignore_persistent_notifications_disabled"
+                        android:textOn="@string/ignore_persistent_notifications_enabled"
+                        android:checked="@{viewState.ignorePersistentNotifications}"
+                        android:onCheckedChanged="@{(v, checked) -> fragment.ignorePersistentNotificationsChanged(checked)}"/>
+
+                    <TextView
+                        style="@style/Label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewState.remindWhenScreenIsOn ? @string/remind_when_screen_is_on_enabled : @string/remind_when_screen_is_on_disabled}"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textOff="@string/remind_when_screen_is_on_disabled"
+                        android:textOn="@string/remind_when_screen_is_on_enabled"
+                        android:checked="@{viewState.remindWhenScreenIsOn}"
+                        android:onCheckedChanged="@{(v, checked) -> fragment.remindWhenScreenIsOnChanged(checked)}"/>
+
+                    <TextView
+                        style="@style/Label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewState.respectPhoneCalls ? @string/respect_phone_calls_enabled : @string/respect_phone_calls_disabled}"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textOff="@string/respect_phone_calls_disabled"
+                        android:textOn="@string/respect_phone_calls_enabled"
+                        android:checked="@{viewState.respectPhoneCalls}"
+                        android:onCheckedChanged="@{(v, checked) -> fragment.respectPhoneCallsChanged(checked)}"/>
+
+                    <TextView
+                        style="@style/Label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewState.respectRingerMode ? @string/respect_ringer_mode_enabled : @string/respect_ringer_mode_disabled}"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textOff="@string/respect_ringer_mode_disabled"
+                        android:textOn="@string/respect_ringer_mode_enabled"
+                        android:checked="@{viewState.respectRingerMode}"
+                        android:onCheckedChanged="@{(v, checked) -> fragment.respectRingerModeChanged(checked)}"/>
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{v -> fragment.onSelectApplicationsButtonClicked()}"
+                    android:text="@string/settings_applications_select_button"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

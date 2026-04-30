@@ -1,0 +1,41 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme.Base" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">#11000000</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:ignore="NewApi">true</item>
+        <item name="colorPrimaryDark">#455A64</item>
+        <item name="colorPrimary">#607D8B</item>
+    </style>
+
+    <style name="BaseToolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">?attr/colorPrimaryDark</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="theme">@style/ThemeOverlay.MaterialComponents.Dark.ActionBar</item>
+    </style>
+
+    <style name="SettingsCard" parent="Widget.MaterialComponents.CardView" />
+
+    <style name="CardTitle" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:padding">@dimen/default_widget_interval</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">?colorAccent</item>
+    </style>
+
+    <style name="CardContent">
+        <item name="android:padding">@dimen/default_widget_interval</item>
+    </style>
+
+    <style name="CardTitleSeparator">
+        <item name="android:background">?colorPrimaryDark</item>
+    </style>
+
+    <!-- same label as in TextInputLayout-->
+    <style name="BaseLabel" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:paddingLeft">4dip</item>
+    </style>
+
+</resources>

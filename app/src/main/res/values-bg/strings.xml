@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="common_general_error">Възникна грешка</string>
+    <string name="applications_empty_message">Не е открито нито едно приложение</string>
+    <string name="applications_empty_title">Странно…</string>
+    <string name="applications_error_message">Възникна грешка при зареждането на данните на приложението. Моля, опитайте отново</string>
+    <string name="applications_error_title">Ой!</string>
+    <string name="applications_selection_title">Избор на приложения</string>
+    <string name="loading_message">зареждане…</string>
+    <string name="reminder_interval_hint">Времетраене между напомнянията (минути)</string>
+    <string name="settings_access_enabled">Услугата за известяване е включена</string>
+    <string name="settings_access_manage">Управление на достъпа</string>
+    <string name="settings_access_title">Достъп до услугата за известяване</string>
+    <string name="settings_applications_select_button">Изберете приложение</string>
+    <string name="settings_applications_select_title">Приложения следени за пропуснати уведомления</string>
+    <string name="settings_title">Настройки</string>
+    <string name="scheduler_begin_hint">Започва</string>
+    <string name="settings_scheduler">Планировчик</string>
+    <string name="scheduler_disabled">Изключен</string>
+    <string name="scheduler_working_period">Работно време</string>
+    <string name="scheduler_disabled_period">Неработещ</string>
+    <string name="scheduler_enabled">Включен</string>
+    <string name="scheduler_end_hint">Приключва</string>
+    <string name="settings_sound">Звук</string>
+    <string name="sound_reminder_ringtone_button">Мелодия за напомняне</string>
+    <string name="sound_select_ringtone_dialog_title">Избор на мелодия</string>
+    <string name="menu_advanced_settings_visible">Разширени настройки</string>
+    <string name="menu_show_logs">Показване на дневници</string>
+    <string name="wakelock_disabled">Позволява на устройството да заспи (ПРЕПОРЪЧИТЕЛНО)</string>
+    <string name="wakelock_enabled">Не позволява на устройството да заспи (ВНИМАНИЕ: използвайте тази възможност само ако срещате нередности с периодичността на напомнянията)</string>
+    <string name="settings_battery_optimization">Пестене на заряда в батерията</string>
+    <string name="settings_manage_battery_optimization">Управление на пестенето на заряда на батерията</string>
+    <string name="settings_battery_optimization_enabled">Android OS оптимизира използването на батерията от това приложение. Ако срещате нередности с работата на известията, моля изключете пестенето на заряда за приложението "Missed Notification Reminder".</string>
+    <string name="settings_battery_optimization_disabled"><![CDATA[
+    Приложението е добавено в белия списък за пестене на заряда на батерията<br/><br/>
+    Някои устройства могат да имат допълнителни ограничения за използване на батерията.
+    Ако имате проблеми с приложението, моля, посетете
+    <u><a href="https://dontkillmyapp.com/">https://dontkillmyapp.com</a></u>
+    уебсайт за намиране на възможно решение]]></string>
+    <string name="settings_battery_wakelock_disabled">Услугата за преден план е деактивирана. Моля, променете се, ако срещнете проблеми с напомняния</string>
+    <string name="settings_battery_wakelock_enabled">Услугата за преден план е активирана. Използвайте само ако имате проблеми с напомнянията. Тази опция ще поддържа устройството включено, докато напомнянията работят</string>
+    <string name="settings_permissions">Разрешения</string>
+    <string name="settings_permissions_grant">Дайте достъп</string>
+    <string name="settings_permissions_required">Следващите разрешения са необходими за правилната работа на приложението: \"%1$s\" Моля, дайте достъп.</string>
+    <string name="settings_vibration">Вибро режим</string>
+    <string name="vibration_disabled">Изключен</string>
+    <string name="vibration_enabled">Включен</string>
+    <string name="vibration_pattern_hint">Вибрационен модел</string>
+    <string name="vibration_pattern_error">Моделът трябва да бъде посочен като списък от цели числа, разделени със запетаи. Първата стойност показва броя милисекунди, които трябва да изчакат, преди да включите вибратора. Следващата стойност показва броя на милисекунди, за който да се задържи вибраторът, преди да го изключи. Последващите стойности се променят между продължителността в милисекунди, за да се изключи вибраторът или да се включи вибраторът. Пример: 0, 100, 50, 100, 200</string>
+    <string name="ignore_persistent_notifications_disabled">Съобразяване с постоянни (неизтриваеми) уведомления</string>
+    <string name="ignore_persistent_notifications_enabled">Пренебрегване на постоянни (неизтриваеми) уведомления</string>
+    <string name="respect_phone_calls_disabled">Уведомяване по време на телефонен разговор</string>
+    <string name="respect_phone_calls_enabled">Без уведомяване по време на телефонен разговор</string>
+    <string name="respect_ringer_mode_disabled">Пренебрегване на аудио профила на устройството (Продължава да уведомява в тих режим)</string>
+    <string name="respect_ringer_mode_enabled">Съобразяване с аудио профила на устройството (Не уведомява в тих режим)</string>
+    <string name="remind_when_screen_is_on_enabled">Remind while screen is turned on</string>
+    <string name="reminder_disabled">Изключено</string>
+    <string name="reminder_enabled">Включено</string>
+    <string name="remind_when_screen_is_on_disabled">Не напомняйте докато екранът е включен</string>
+    <string name="settings_reminder">Настройки на напомнянията</string>
+    <string name="reminder_repeats_hint">Повтарящи се повторения (макс.)</string>
+    <string name="limit_reminder_repeats_disabled">Напомнянето ще се повтаря вечно</string>
+    <string name="limit_reminder_repeats_enabled">Напомнянето ще се повтори ограничен брой пъти</string>
+    <string name="create_dismiss_notification_disabled">Не създавайте допълнителна нотификация</string>
+    <string name="create_dismiss_notification_enabled">Създайте допълнителна нотификация, когато са активни напомняния, което ви позволява да спрете напомнянията, без да изтривате известия от други приложения</string>
+    <string name="create_dismiss_notification_immediately_disabled">Създайте допълнително известие по време на първото напомняне</string>
+    <string name="create_dismiss_notification_immediately_enabled">Създайте допълнително известие веднага след откриване на известия от наблюдавани приложения</string>
+    <string name="dismiss_notification_text">Изтрийте това известие, за да спрете напомнянията</string>
+    <string name="dismiss_notification_title">Напомнянията са активни</string>
+    <string name="dismiss_action">Отмяна</string>
+    <string name="menu_night_mode">Темная тема</string>
+    <string name="menu_night_mode_follow_system">Следвайте системния настройкам</string>
+    <string name="menu_night_yes">Включена</string>
+    <string name="menu_night_mode_no">Отключена</string>
+    <string name="menu_rate_app">Ставка ап</string>
+    <string name="menu_contribute">Поддържа</string>
+    <string name="payment_error_billing_unavailable">Покупките не са налични на това устройство</string>
+    <string name="payment_error_service_unavailable">Услугата не е налична, моля, опитайте по-късно</string>
+    <string name="payment_error_user_canceled">Покупката е отменена</string>
+    <string name="payment_error_purchase_pending">Плащане в очакване!</string>
+    <string name="contribution_title">Принос към разработката</string>
+    <string name="contribution_contribute_options"><![CDATA[
+    Можете да допринесете, като създадете доклад за грешка или редактирате проекта
+    в <u><a href="https://github.com/httpdispatch/MissedNotificationsReminder">хранилище на github</a></u>
+    <br/><br/>
+    Можете също така да закупите някои продукти в подкрепа на развитието.
+    <b>Моля, обърнете внимание</b> че закупуването на какъвто и да е продукт <b>няма да отключи</b> всички допълнителни функции]]></string>
+    <string name="contribution_action_purchase">Покупка</string>
+    <string name="payment_loading_purchase_items">Зареждане…</string>
+    <string name="payment_purchasing">Покупка…</string>
+    <string name="payment_purchase_done">Благодарим за вашата подкрепа!</string>
+    <string name="payment_contributions">Вашият принос: %s</string>
+</resources>

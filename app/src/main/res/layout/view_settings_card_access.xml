@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".settings.MainActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="fragment"
+            type="com.app.missednotificationsreminder.settings.SettingsFragment" />
+
+        <variable
+            name="viewState"
+            type="androidx.lifecycle.LiveData&lt;com.app.missednotificationsreminder.settings.SettingsViewState&gt;" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        style="@style/SettingsCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/CardTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_access_title" />
+
+            <View
+                style="@style/CardTitleSeparator"
+                android:layout_width="match_parent"
+                android:layout_height="1dip" />
+
+            <LinearLayout
+                style="@style/CardContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_access_enabled"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:visibility="@{viewState.accessInitialized &amp;&amp; viewState.accessEnabled ? View.VISIBLE :View.GONE}" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_acess_disabled"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="?colorError"
+                    android:visibility="@{viewState.accessInitialized &amp;&amp; !viewState.accessEnabled ? View.VISIBLE :View.GONE}" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="@{fragment::onManageAccessButtonPressed}"
+                        android:text="@string/settings_access_manage" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

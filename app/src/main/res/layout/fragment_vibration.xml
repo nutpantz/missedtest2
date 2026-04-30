@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.app.missednotificationsreminder.settings.vibration.VibrationViewModel" />
+
+        <variable
+            name="viewState"
+            type="androidx.lifecycle.LiveData&lt;com.app.missednotificationsreminder.settings.vibration.VibrationViewState&gt;" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{viewState.enabled ? @string/vibration_enabled : @string/vibration_disabled}" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@{viewState.enabled}"
+            android:onCheckedChanged="@{(v, checked) -> viewModel.enabledChanged(checked)}"
+            android:textOff="@string/vibration_disabled"
+            android:textOn="@string/vibration_enabled" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:error="@{viewState.patternError}">
+
+            <EditText
+                android:id="@+id/patternName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:afterTextChanged="@{s -> viewModel.patternChanged(s.toString())}"
+                android:enabled="@{viewState.enabled}"
+                android:hint="@string/vibration_pattern_hint"
+                android:inputType="text"
+                android:text="@{viewState.pattern}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+</layout>
